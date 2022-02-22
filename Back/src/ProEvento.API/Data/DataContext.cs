@@ -13,12 +13,13 @@ namespace ProEvento.API.Data
 
         }
 
-
+        /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Evento>(e => e.Property(o => o.EventoId).HasColumnType("int(1)"));
         }
+        */
     }
 }
