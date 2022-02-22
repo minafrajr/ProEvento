@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ProEvento.API.Data;
 using ProEvento.API.Models;
 
 namespace ProEvento.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EventoController : ControllerBase
+    public class EventosController : ControllerBase
     {
 
         public IEnumerable<Evento> _evento = new Evento[]{
@@ -35,19 +36,23 @@ namespace ProEvento.API.Controllers
             }
         };
 
-        public EventoController()
-        { }
+        private readonly DataContext _context;
+
+        public EventosController(DataContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public IEnumerable<Evento> Get()
         {
-            return _evento;
+            return _context.Eventos;
         }
 
         [HttpGet("{id}")]
         public IEnumerable<Evento> GetById(int id)
         {
-            return _evento.Where(evento => evento.EventoId == id);
+            return _context.Eventos.Where(evento => evento.EventoId == id);
         }
     }
 }
