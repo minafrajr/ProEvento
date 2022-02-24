@@ -1,0 +1,9 @@
+notas.txt
+node_modules
+
+Back/src/ProEvento.API/bin/*.*
+Back/src/ProEvento.API/obj/*.*
+
+Front/node_modules
+/node_modules
+/.vscode
